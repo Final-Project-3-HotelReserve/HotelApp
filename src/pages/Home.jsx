@@ -41,6 +41,10 @@ const Home = () => {
             placeholder="Search your destination here"
           />
         </View>
+        <View className="flex flex-row justify-center gap-28">
+          <Text className="mb-1 text-sm font-semibold">Checkin Date</Text>
+          <Text className="mb-1 text-sm font-semibold">Checkout Date</Text>
+        </View>
         <View className="flex flex-row gap-5 items-center">
           <View className="flex-row">
             <FontAwesome name="calendar" size={20} color="black" />
@@ -49,7 +53,7 @@ const Home = () => {
                 setShowCheckInDatePicker(true);
               }}
             >
-              <Text className="ml-2 p-1 rounded-md border border-slate-500 w-[138px]">
+              <Text className="ml-2 p-1 pl-3 rounded-md border border-slate-500 w-[138px]">
                 {checkInDate.toLocaleDateString()}
               </Text>
             </Pressable>
@@ -61,7 +65,7 @@ const Home = () => {
                 setShowCheckOutDatePicker(true);
               }}
             >
-              <Text className="ml-2 p-1 rounded-md border border-slate-500 w-[138px]">
+              <Text className="ml-2 p-1 pl-3 rounded-md border border-slate-500 w-[138px]">
                 {checkOutDate.toLocaleDateString()}
               </Text>
             </Pressable>
