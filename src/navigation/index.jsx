@@ -5,14 +5,14 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 // screen
 import HomeScreen from "../pages/Home";
 import FavoriteScreen from "../pages/Favorite";
+import HistoryScreen from "../pages/History";
 import ProfileScreen from "../pages/Profile";
-import SettingScreen from "../pages/Setting";
 
 // screen name
 const homeName = "Home";
 const favoriteName = "Favorite";
+const historyName = "History";
 const profileName = "Profile";
-const settingName = "Setting";
 
 const Tab = createBottomTabNavigator();
 
@@ -48,10 +48,10 @@ const index = () => {
               iconName = focused ? "home" : "home-outline";
             } else if (rn === favoriteName) {
               iconName = focused ? "heart" : "heart-outline";
+            } else if (rn === historyName) {
+              iconName = focused ? "document-text" : "document-text-outline";
             } else if (rn === profileName) {
               iconName = focused ? "person" : "person-outline";
-            } else if (rn === settingName) {
-              iconName = focused ? "settings" : "settings-outline";
             }
 
             return <Ionicons name={iconName} size={size} color={color} />;
@@ -69,13 +69,13 @@ const index = () => {
           options={{ ...navigationOptions }}
         />
         <Tab.Screen
-          name={profileName}
-          component={ProfileScreen}
+          name={historyName}
+          component={HistoryScreen}
           options={{ ...navigationOptions }}
         />
         <Tab.Screen
-          name={settingName}
-          component={SettingScreen}
+          name={profileName}
+          component={ProfileScreen}
           options={{ ...navigationOptions }}
         />
       </Tab.Navigator>

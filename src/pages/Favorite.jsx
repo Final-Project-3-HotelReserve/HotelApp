@@ -20,18 +20,18 @@ const Favorite = () => {
           key={fav.id}
           className="bg-slate-100 rounded-t-2xl rounded-b-md overflow-hidden shadow-xl shadow-black relative"
         >
-          <View className="absolute right-2 top-2 z-10">
+          <View className="absolute right-3 top-3 z-10">
             <FontAwesome name="heart" size={24} color="red" />
           </View>
           <Image source={fav.image} className="w-full h-52" />
-          <View className="p-2 flex flex-row justify-between">
+          <View className="p-1 flex flex-row justify-between">
             <View>
               <Text className="text-lg font-semibold ml-2">{fav.name}</Text>
               <View className="flex flex-row ml-1 mt-1">
                 <Ionicons name="location-outline" size={17} color="black" />
                 <Text className="text-[16px]">{fav.location}</Text>
               </View>
-              <Text className="text-lg ml-2 mt-2 font-semibold ">
+              <Text className="text-lg ml-2 mt-1 font-semibold ">
                 {fav.price}/night
               </Text>
             </View>
