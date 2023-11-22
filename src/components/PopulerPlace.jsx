@@ -9,7 +9,7 @@ const PopulerPlace = () => {
         {PopulerDestination.map((item) => (
           <View
             key={item.id}
-            className="mx-2 mb-5 rounded-lg overflow-hidden shadow-xl shadow-black"
+            className="mx-2 mb-5 rounded-lg overflow-hidden shadow-lg shadow-black"
           >
             <Image source={item.image} className="w-48 h-36" />
             <View className="absolute p-1 bottom-0 left-0 right-0 bg-slate-100">
