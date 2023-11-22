@@ -1,12 +1,12 @@
 import { Text, View } from "react-native";
 import React from "react";
 
-const Setting = () => {
+const History = () => {
   return (
     <View>
-      <Text>Setting Page</Text>
+      <Text>History Page</Text>
     </View>
   );
 };
 
-export default Setting;
+export default History;
