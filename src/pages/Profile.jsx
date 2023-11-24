@@ -37,7 +37,10 @@ const Profile = () => {
   return (
     <ScrollView className="bg-white w-full h-full">
       {users.map((user) => (
-        <View key={user.id} className="border border-slate-400 mb-10">
+        <View
+          key={user.id}
+          className="border m-5 rounded-lg border-black mb-10"
+        >
           <View className="flex flex-row p-3 gap-5">
             <View className="w-20 h-20 rounded-full overflow-hidden border border-black">
               <Image source={user.image} className="w-20 h-20" />
@@ -52,7 +55,7 @@ const Profile = () => {
       <Text className="mx-5 font-bold text-lg">My Account</Text>
       {menuAccount.map((m) => (
         <Pressable
-          key={m.di}
+          key={m.id}
           className="mx-5 my-3 p-3 border border-slate-950 rounded-lg"
         >
           <View className="flex flex-row justify-between">
