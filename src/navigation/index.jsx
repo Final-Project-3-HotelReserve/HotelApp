@@ -7,6 +7,7 @@ import HomeScreen from "../pages/Home";
 import FavoriteScreen from "../pages/Favorite";
 import HistoryScreen from "../pages/History";
 import ProfileScreen from "../pages/Profile";
+import { HomeNav } from "./stack/HomeNav";
 
 // screen name
 const homeName = "Home";
