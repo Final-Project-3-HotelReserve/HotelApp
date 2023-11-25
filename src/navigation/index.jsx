@@ -3,11 +3,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "@expo/vector-icons/Ionicons";
 // screen
-import HomeScreen from "../pages/Home";
 import FavoriteScreen from "../pages/Favorite";
 import HistoryScreen from "../pages/History";
-import ProfileScreen from "../pages/Profile";
 import { HomeNav } from "./stack/HomeNav";
+import { SettingStack } from "./stack/SettingStack";
 
 // screen name
 const homeName = "Home";
@@ -61,7 +60,7 @@ const index = () => {
       >
         <Tab.Screen
           name={homeName}
-          component={HomeScreen}
+          component={HomeNav}
           options={{ headerShown: false }}
         />
         <Tab.Screen
@@ -76,8 +75,8 @@ const index = () => {
         />
         <Tab.Screen
           name={profileName}
-          component={ProfileScreen}
-          options={{ ...navigationOptions }}
+          component={SettingStack}
+          options={{ headerShown: false }}
         />
       </Tab.Navigator>
     </NavigationContainer>

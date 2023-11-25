@@ -5,25 +5,30 @@ import TopPlace from "../components/TopPlace";
 import PopulerPlace from "../components/PopulerPlace";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { StatusBar } from "expo-status-bar";
-
-const Home = ({ navigation }) => {
+import { useNavigation } from "@react-navigation/native";
+const Home = () => {
+  const navigation = useNavigation();
   const [checkInDate, setCheckInDate] = useState(new Date());
   const [checkOutDate, setCheckOutDate] = useState(new Date());
-  const [showCheckInDatePicker, setShowCheckInDatePicker] = useState(false);
-  const [showCheckOutDatePicker, setShowCheckOutDatePicker] = useState(false);
+  const [showCheckInDate, setShowCheckInDate] = useState(false);
+  const [showCheckOutDate, setShowCheckOutDate] = useState(false);
 
   const handleCheckInDateChange = (event, selectedDate) => {
-    setShowCheckInDatePicker(false);
+    setShowCheckInDate(false);
     if (selectedDate) {
       setCheckInDate(selectedDate);
     }
   };
 
   const handleCheckOutDateChange = (event, selectedDate) => {
-    setShowCheckOutDatePicker(false);
+    setShowCheckOutDate(false);
     if (selectedDate) {
       setCheckOutDate(selectedDate);
     }
+  };
+
+  const handleSearch = () => {
+    navigation.navigate("Search Page");
   };
 
   return (
@@ -54,7 +59,7 @@ const Home = ({ navigation }) => {
             <FontAwesome name="calendar" size={20} color="black" />
             <Pressable
               onPress={() => {
-                setShowCheckInDatePicker(true);
+                setShowCheckInDate(true);
               }}
             >
               <Text className="ml-2 p-1 pl-3 rounded-md border border-slate-500 w-28">
@@ -66,7 +71,7 @@ const Home = ({ navigation }) => {
             <FontAwesome name="calendar" size={20} color="black" />
             <Pressable
               onPress={() => {
-                setShowCheckOutDatePicker(true);
+                setShowCheckOutDate(true);
               }}
             >
               <Text className="ml-2 p-1 pl-3 rounded-md border border-slate-500 w-28">
@@ -74,7 +79,7 @@ const Home = ({ navigation }) => {
               </Text>
             </Pressable>
           </View>
-          {showCheckInDatePicker && (
+          {showCheckInDate && (
             <DateTimePicker
               value={checkInDate}
               mode="date"
@@ -82,7 +87,7 @@ const Home = ({ navigation }) => {
               onChange={handleCheckInDateChange}
             />
           )}
-          {showCheckOutDatePicker && (
+          {showCheckOutDate && (
             <DateTimePicker
               value={checkOutDate}
               mode="date"
@@ -91,7 +96,10 @@ const Home = ({ navigation }) => {
             />
           )}
         </View>
-        <Pressable className="mt-5 border border-black p-2 rounded-full bg-black">
+        <Pressable
+          onPress={handleSearch}
+          className="mt-5 border border-black p-2 rounded-full bg-black"
+        >
           <Text className="text-center text-[16px] text-white font-semibold">
             Search
           </Text>

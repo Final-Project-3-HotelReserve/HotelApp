@@ -1,7 +1,5 @@
 import * as React from "react";
 import Navigation from "./src/navigation/index";
-function App() {
+export default function App() {
   return <Navigation />;
 }
-
-export default App;
