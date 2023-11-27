@@ -1,20 +1,20 @@
-import { Text, View, Image, ScrollView, Pressable } from "react-native";
-import React from "react";
-import { Ionicons } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
+import { Text, View, Image, ScrollView, Pressable } from 'react-native'
+import React from 'react'
+import { Ionicons } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/native'
 const Profile = () => {
   const users = [
     {
       id: 1,
-      image: require("../../assets/image/people.jpg"),
-      name: "John Doe",
-      email: "johndoe@gmail.com",
+      image: require('../../assets/image/people.jpg'),
+      name: 'John Doe',
+      email: 'johndoe@gmail.com',
     },
-  ];
-  const navigation = useNavigation();
+  ]
+  const navigation = useNavigation()
   const handleSetting = () => {
-    navigation.navigate("Setting Profile");
-  };
+    navigation.navigate('Setting Profile')
+  }
   return (
     <ScrollView className="bg-white w-full h-full">
       <View className="p-3 mt-5 h-16 border-b-2">
@@ -36,6 +36,7 @@ const Profile = () => {
           </View>
         </View>
       ))}
+
       <Text className="mx-5 font-bold text-lg">My Account</Text>
       <Pressable
         onPress={handleSetting}
@@ -88,7 +89,7 @@ const Profile = () => {
         </View>
       </Pressable>
     </ScrollView>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile

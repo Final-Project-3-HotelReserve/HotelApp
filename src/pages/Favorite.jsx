@@ -1,49 +1,47 @@
-import { Text, View, Image } from "react-native";
-import React from "react";
-import { FontAwesome } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
+import { View } from 'react-native'
+import React from 'react'
+import CardHotel from '../components/CardHotel'
 const Favorite = () => {
   const favHotels = [
     {
-      id: 1,
-      name: "Ayana Hotel",
-      image: require("../../assets/image/bali.jpg"),
-      location: "Bali",
-      rate: 4.8,
-      price: "$250",
+      id: 2,
+      name: 'Hotel Dreams',
+      image: require('../../assets/image/prancis.jpg'),
+      rate: 4.5,
+      price: 250,
+      location: 'France',
+      favorite: true,
+      facilities: [
+        {
+          name: 'Wifi',
+          icon: 'wifi',
+        },
+        {
+          name: 'Food',
+          icon: 'fast-food-outline',
+        },
+        {
+          name: 'Parking',
+          icon: 'car-outline',
+        },
+        {
+          name: 'Bicycle',
+          icon: 'bicycle',
+        },
+        {
+          name: 'Gym',
+          icon: 'barbell-outline',
+        },
+      ],
     },
-  ];
+  ]
   return (
-    <View className="container mx-auto p-5 bg-white w-full h-full">
-      {favHotels.map((fav) => (
-        <View
-          key={fav.id}
-          className="bg-slate-100 rounded-t-2xl rounded-b-md overflow-hidden shadow-xl shadow-black relative"
-        >
-          <View className="absolute right-3 top-3 z-10">
-            <FontAwesome name="heart" size={24} color="red" />
-          </View>
-          <Image source={fav.image} className="w-full h-52" />
-          <View className="p-1 flex flex-row justify-between">
-            <View>
-              <Text className="text-lg font-semibold ml-2">{fav.name}</Text>
-              <View className="flex flex-row ml-1 mt-1">
-                <Ionicons name="location-outline" size={17} color="black" />
-                <Text className="text-[16px]">{fav.location}</Text>
-              </View>
-              <Text className="text-lg ml-2 mt-1 font-semibold ">
-                {fav.price}/night
-              </Text>
-            </View>
-            <View className="flex flex-row gap-1">
-              <FontAwesome name="star" size={20} color="black" />
-              <Text className="font-semibold mr-2">{fav.rate}/5</Text>
-            </View>
-          </View>
-        </View>
+    <View className="container mx-auto bg-white w-full h-full">
+      {favHotels.map((item, idx) => (
+        <CardHotel key={idx} item={item} />
       ))}
     </View>
-  );
-};
+  )
+}
 
-export default Favorite;
+export default Favorite

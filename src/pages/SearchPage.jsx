@@ -1,18 +1,20 @@
-import { Text, View } from "react-native";
-import React from "react";
-import { useNavigation } from "@react-navigation/native";
+import { View, ScrollView } from 'react-native'
+import React from 'react'
+import { ListHotel } from '../utils'
+import SearchBox from '../components/SearchBox'
+import CardHotel from '../components/CardHotel'
 
 const SearchPage = () => {
-  const navigation = useNavigation();
-  const handleDetail = () => {
-    navigation.navigate("Detail Page");
-  };
   return (
-    <View>
-      <Text>Search Page</Text>
-      <Text onPress={handleDetail}>Go to Detail Page?</Text>
+    <View className="container bg-white w-full h-full">
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <SearchBox title="Search Result" />
+        {ListHotel.map((item, idx) => (
+          <CardHotel key={idx} item={item} />
+        ))}
+      </ScrollView>
     </View>
-  );
-};
+  )
+}
 
-export default SearchPage;
+export default SearchPage
