@@ -85,13 +85,13 @@ const Profile = () => {
 
       <Pressable
       onPress={Login}
-       className="mx-5 my-3 p-3 border border-red-600 rounded-lg">
+       className="mx-5 my-3 p-3 border border-slate-950 rounded-lg">
         <View className="flex flex-row justify-between">
           <View className="flex flex-row">
-            <Ionicons name="log-out-outline" size={24} color="red" />
-            <Text className="ml-2 font-semibold text-red-500">Logout</Text>
+            <Ionicons name="log-out-outline" size={24} color="black" />
+            <Text className="ml-2 font-semibold">Login</Text>
           </View>
-          <Ionicons name="caret-forward-outline" size={24} color="red" />
+          <Ionicons name="caret-forward-outline" size={24} color="black" />
         </View>
       </Pressable>
     </ScrollView>
