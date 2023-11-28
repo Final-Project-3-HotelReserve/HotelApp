@@ -12,6 +12,9 @@ const Profile = () => {
     },
   ]
   const navigation = useNavigation()
+  const Login = () => {
+    navigation.navigate('Login')
+  }
   const handleSetting = () => {
     navigation.navigate('Setting Profile')
   }
@@ -79,7 +82,10 @@ const Profile = () => {
           <Ionicons name="caret-forward-outline" size={24} color="black" />
         </View>
       </Pressable>
-      <Pressable className="mx-5 my-3 p-3 border border-red-600 rounded-lg">
+
+      <Pressable
+      onPress={Login}
+       className="mx-5 my-3 p-3 border border-red-600 rounded-lg">
         <View className="flex flex-row justify-between">
           <View className="flex flex-row">
             <Ionicons name="log-out-outline" size={24} color="red" />

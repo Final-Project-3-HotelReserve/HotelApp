@@ -29,6 +29,11 @@ export const SettingStack = () => {
         component={SettingProfile}
         options={{ ...navigationOptions }}
       />
+        <Stack.Screen
+        name="Login"
+        component={Login}
+        options={{ ...navigationOptions }}
+      />
     </Stack.Navigator>
   )
 }
