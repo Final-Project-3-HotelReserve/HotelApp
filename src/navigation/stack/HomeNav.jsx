@@ -1,21 +1,21 @@
-import React from 'react'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import Home from '../../pages/Home'
-import SearchPage from '../../pages/SearchPage'
-import DetailPage from '../../pages/Detail'
-import BookingPage from '../../pages/Booking'
+import React from "react";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Home from "../../pages/Home";
+import SearchPage from "../../pages/SearchPage";
+import DetailPage from "../../pages/Detail";
+import BookingPage from "../../pages/Booking";
 
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator();
 
 const navigationOptions = {
-  headerStyle: { backgroundColor: '#0f172a' },
-  headerTintColor: '#fff',
+  headerStyle: { backgroundColor: "#0f172a" },
+  headerTintColor: "#fff",
   headerTitleStyle: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     fontSize: 20,
   },
-  headerTitleAlign: 'center',
-}
+  headerTitleAlign: "center",
+};
 
 export const HomeNav = () => {
   return (
@@ -41,5 +41,5 @@ export const HomeNav = () => {
         options={{ ...navigationOptions }}
       />
     </Stack.Navigator>
-  )
-}
+  );
+};

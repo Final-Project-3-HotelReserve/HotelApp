@@ -1,20 +1,19 @@
-import React from 'react'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import Profile from '../../pages/Profile'
-import Login from '../../pages/Login'
-import SettingProfile from '../../pages/SettingProfile'
+import React from "react";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Profile from "../../pages/Profile";
+import SettingProfile from "../../pages/SettingProfile";
 
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator();
 
 const navigationOptions = {
-  headerStyle: { backgroundColor: '#0f172a' },
-  headerTintColor: '#fff',
+  headerStyle: { backgroundColor: "#0f172a" },
+  headerTintColor: "#fff",
   headerTitleStyle: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     fontSize: 20,
   },
-  headerTitleAlign: 'center',
-}
+  headerTitleAlign: "center",
+};
 
 export const SettingStack = () => {
   return (
@@ -30,5 +29,5 @@ export const SettingStack = () => {
         options={{ ...navigationOptions }}
       />
     </Stack.Navigator>
-  )
-}
+  );
+};
