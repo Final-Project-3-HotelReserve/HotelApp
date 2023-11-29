@@ -1,9 +1,10 @@
-import { Text, View, Image } from "react-native";
-import React from "react";
+import { Text, View, Image, Pressable } from "react-native";
+import React, { useState } from "react";
 import { FontAwesome } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+
 const Favorite = () => {
-  const favHotels = [
+  const [favHotels, setFavHotels] = useState([
     {
       id: 1,
       name: "Ayana Hotel",
@@ -11,8 +12,18 @@ const Favorite = () => {
       location: "Bali",
       rate: 4.8,
       price: "$250",
+      isFavorite: false, // Added property to track favorite status
     },
-  ];
+  ]);
+
+  const toggleFavorite = (id) => {
+    setFavHotels((prevHotels) =>
+      prevHotels.map((hotel) =>
+        hotel.id === id ? { ...hotel, isFavorite: !hotel.isFavorite } : hotel
+      )
+    );
+  };
+
   return (
     <View className="container mx-auto p-5 bg-white w-full h-full">
       {favHotels.map((fav) => (
@@ -20,9 +31,15 @@ const Favorite = () => {
           key={fav.id}
           className="bg-slate-100 rounded-t-2xl rounded-b-md overflow-hidden shadow-xl shadow-black relative"
         >
-          <View className="absolute right-3 top-3 z-10">
-            <FontAwesome name="heart" size={24} color="red" />
-          </View>
+          <Pressable onPress={() => toggleFavorite(fav.id)}>
+            <View className="absolute right-3 top-3 z-10">
+              <FontAwesome
+                name={fav.isFavorite ? "heart" : "heart-o"}
+                size={24}
+                color={fav.isFavorite ? "red" : "black"}
+              />
+            </View>
+          </Pressable>
           <Image source={fav.image} className="w-full h-52" />
           <View className="p-1 flex flex-row justify-between">
             <View>

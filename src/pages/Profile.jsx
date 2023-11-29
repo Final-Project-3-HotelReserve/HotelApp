@@ -1,20 +1,34 @@
-import { Text, View, Image, ScrollView, Pressable } from "react-native";
-import React from "react";
-import { Ionicons } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
+import { Text, View, Image, ScrollView, Pressable } from 'react-native'
+import React from 'react'
+import { useDispatch, useSelector } from "react-redux";
+import { Ionicons } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/native'
+import {setIsLogin} from '../redux/user/userSlice'
+
 const Profile = () => {
   const users = [
     {
       id: 1,
-      image: require("../../assets/image/people.jpg"),
-      name: "John Doe",
-      email: "johndoe@gmail.com",
+      image: require('../../assets/image/people.jpg'),
+      name: 'user',
+      email: 'user@gmail.com',
     },
-  ];
-  const navigation = useNavigation();
-  const handleSetting = () => {
-    navigation.navigate("Setting Profile");
+  ]
+  const navigation = useNavigation()
+  const dispatch = useDispatch();
+
+  const handleRedirectToLoginPage = () => {
+    return navigation.navigate("Login");
   };
+
+  const handleLogout = () => {
+    dispatch(setIsLogin(false));
+    return navigation.navigate();
+  };
+
+  const handleSetting = () => {
+    navigation.navigate('Setting Profile')
+  }
   return (
     <ScrollView className="bg-white w-full h-full">
       <View className="p-3 mt-5 h-16 border-b-2">
@@ -36,6 +50,7 @@ const Profile = () => {
           </View>
         </View>
       ))}
+
       <Text className="mx-5 font-bold text-lg">My Account</Text>
       <Pressable
         onPress={handleSetting}
@@ -78,17 +93,23 @@ const Profile = () => {
           <Ionicons name="caret-forward-outline" size={24} color="black" />
         </View>
       </Pressable>
-      <Pressable className="mx-5 my-3 p-3 border border-red-600 rounded-lg">
-        <View className="flex flex-row justify-between">
-          <View className="flex flex-row">
-            <Ionicons name="log-out-outline" size={24} color="red" />
-            <Text className="ml-2 font-semibold text-red-500">Logout</Text>
-          </View>
-          <Ionicons name="caret-forward-outline" size={24} color="red" />
-        </View>
-      </Pressable>
-    </ScrollView>
-  );
-};
 
-export default Profile;
+      <Pressable
+  onPress={setIsLogin ? handleRedirectToLoginPage : handleLogout }
+  className="mx-5 my-3 p-3 border border-slate-950 rounded-lg"
+>
+  <View className="flex flex-row justify-between">
+    <View className="flex flex-row">
+      <Ionicons name="log-out-outline" size={24} color="black" />
+      <Text className="ml-2 font-semibold">
+        {setIsLogin ? 'Login' : 'Logout' }
+      </Text>
+    </View>
+    <Ionicons name="caret-forward-outline" size={24} color="black" />
+  </View>
+</Pressable>
+    </ScrollView>
+  )
+}
+
+export default Profile
