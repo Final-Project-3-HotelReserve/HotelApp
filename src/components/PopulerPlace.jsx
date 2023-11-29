@@ -1,6 +1,6 @@
-import React from 'react'
-import { View, Text, ScrollView, Image } from 'react-native'
-import { PopulerDestination } from '../utils/index'
+import React from "react";
+import { View, Text, ScrollView, Image } from "react-native";
+import { PopulerDestination } from "../utils/index";
 const PopulerPlace = () => {
   return (
     <View className="p-5">
@@ -21,7 +21,7 @@ const PopulerPlace = () => {
         ))}
       </ScrollView>
     </View>
-  )
-}
+  );
+};
 
-export default PopulerPlace
+export default PopulerPlace;
